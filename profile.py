@@ -1,17 +1,29 @@
+# Import the Portal object.
 import geni.portal as portal
+# Import the ProtoGENI library.
 import geni.rspec.pg as pg
+import geni.rspec.igext as IG
 
+# Create a portal context.
 pc = portal.Context()
 request = pc.makeRequestRSpec()
- 
-# Add a raw PC to the request.
-node = request.XenVM("node")
-node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
-node.routable_control_ip = "true"
+tour = IG.Tour()
+tour.Description(IG.Tour.TEXT,"experiment")
+request.addTour(tour)
+request.addTour(tour)
 
-# Install and execute a script that is contained in the repository.
-node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/silly.sh"))
-node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
+prefixForIP = "192.168.1."
 
-# Print the RSpec to the enclosing page.
+link = request.LAN("lan")
+
+for i in range(15):
+    node = request.XenVM("compute-" + str(i))
+    node.cores = 8
+    node.ram = 16384
+
+    iface = node.addInterface("if" + str(i))
+    iface.component_id = "eth1"
+    iface.addAddress(pg.IPv4Address(prefixForIP + str(i + 1), "255.255.255.0"))
+    link.addInterface(iface)
+
 pc.printRequestRSpec(request)
