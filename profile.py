@@ -10,7 +10,6 @@ request = pc.makeRequestRSpec()
 tour = IG.Tour()
 tour.Description(IG.Tour.TEXT,"experiment")
 request.addTour(tour)
-request.addTour(tour)
 
 prefixForIP = "192.168.1."
 
