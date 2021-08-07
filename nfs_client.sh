@@ -12,8 +12,8 @@ start=$1
 findstart=0
 count=0
 
-#for testing, only allow 5
-stopval=5
+#for testing, only allow 20
+stopval=20
 stopcount=0
 
 data=`cat ny.json`
