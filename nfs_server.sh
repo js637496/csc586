@@ -1,7 +1,7 @@
 #/bin/bash
 sudo apt update
 sudo apt -y install nfs-kernel-server
-
+sudo mkdir /nfs
 sudo chown -R nobody:nogroup /nfs
 sudo chmod 777 /nfs
 
