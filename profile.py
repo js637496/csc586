@@ -49,3 +49,4 @@ for i in range(COMPUTE_NODE_COUNT + 1):
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/nfs_client.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/nfs_client.sh " + str(i-1) + " " + str(COMPUTE_NODE_COUNT)))
   
+pc.printRequestRSpec(request)
