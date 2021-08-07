@@ -33,7 +33,7 @@ for row in $(echo "${data}" | jq -r '.[] | @base64'); do
             echo $cameraID
             crontab -l | { cat; echo "* * * * * sudo bash /local/repository/record.sh " + $streamSource + " " + $cameraID ; } | crontab
             stopcount=$(($stopcount+1))
-            if [ $stopcount -eq stopval ]
+            if [ $stopcount -eq $stopval ]
             then
                 break
             fi
