@@ -1,5 +1,5 @@
 #/bin/bash
-
+sudo apt update
 sudo apt -y install nfs-kernel-server
 
 sudo chown -R nobody:nogroup /nfs
