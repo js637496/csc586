@@ -47,5 +47,5 @@ for i in range(COMPUTE_NODE_COUNT + 1):
     iface.addAddress(pg.IPv4Address(prefixForIP + str(i + 1), "255.255.255.0"))
     link.addInterface(iface)
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/nfs_client.sh"))
-    node.addService(pg.Execute(shell="sh", command="sudo /local/repository/nfs_client.sh " + (i-1) + " " + COMPUTE_NODE_COUNT))
+    node.addService(pg.Execute(shell="sh", command="sudo /local/repository/nfs_client.sh " + str(i-1) + " " + str(COMPUTE_NODE_COUNT)))
   
