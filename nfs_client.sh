@@ -15,12 +15,12 @@ start=$1
 findstart=0
 count=0
 
-#for testing, only allow 20
-stopval=20
+#for testing, only allow 5
+stopval=5
 stopcount=0
 
-data=`cat ny.json`
-dataLength=`jq length ny.json`
+data=`cat /local/repository/ny.json`
+dataLength=`jq length /local/repository/ny.json`
 for row in $(echo "${data}" | jq -r '.[] | @base64'); do
     if [ $start -eq $findstart ]
     then
