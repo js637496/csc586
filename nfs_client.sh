@@ -3,6 +3,9 @@ sudo apt update
 sudo apt -y install nfs-common
 sudo apt -y install ffmpeg
 sudo apt -y install jq
+sudo mkdir -p /nfs
+sudo chown -R nobody:nogroup /nfs
+sudo chmod 777 /nfs
 sleep 10m
 
 sudo mount 192.168.1.1:/nfs  /nfs
