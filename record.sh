@@ -17,5 +17,5 @@ mkdir -p $FULL_PATH
 
 ffmpeg -i $STREAM_URL -t 61 -c copy -bsf:a aac_adtstoasc $FULL_PATH/$minute.mp4
 
-#LATER - if its a new hours (00.mp4) start the tarball process for this camera's pervious hour
+#LATER - if its a new hour (00.mp4) start the tarball process for this camera's pervious hour
 #send to bucket.
