@@ -3,6 +3,7 @@ sudo apt update
 sudo apt -y install nfs-common
 sudo apt -y install ffmpeg
 sudo apt -y install jq
+sudo apt -y install awscli
 sudo mkdir -p /nfs
 sudo chown -R nobody:nogroup /nfs
 sudo chmod 777 /nfs
