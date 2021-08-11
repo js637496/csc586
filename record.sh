@@ -16,5 +16,5 @@ FULL_PATH=${HOUR_PATH}/${CAMERA_ID}_${minute}.mp4
 
 ffmpeg -i $STREAM_URL -t 61 -c copy -bsf:a aac_adtstoasc $FULL_PATH
 
-aws s3 mv $FULL_PATH s3://$S3BUCKET/$FULL_PATH
+aws s3 mv --recursive $FULL_PATH s3://$S3BUCKET/$FULL_PATH
 #NFS isnt needed really as everything is going to S3
