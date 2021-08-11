@@ -29,7 +29,7 @@ for i in range(COMPUTE_NODE_COUNT + 1):
     node.cores = 4
     node.ram = 8192
     bs = node.Blockstore("bs", "/nfs")
-    bs.size = "500GB"
+    bs.size = "1TB"
     node.routable_control_ip = "true"
     iface = node.addInterface("if" + str(i))
     iface.component_id = "eth1"
