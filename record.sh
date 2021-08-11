@@ -10,10 +10,9 @@ day=`date +'%d'`
 hour=`date +'%H'`
 minute=`date +'%M'`
 
-FULL_PATH=$NFS_PATH/$year/$month/$day/$hour/$CAMERA_ID
-FULL_PATH=${FULL_PATH}_${minute}_.mp4
-
-mkdir -p $FULL_PATH
+HOUR_PATH=$NFS_PATH/$year/$month/$day/$hour/$CAMERA_ID
+mkdir -p $HOUR_PATH
+FULL_PATH=${HOUR_PATH}/${CAMERA_ID}_${minute}.mp4
 
 ffmpeg -i $STREAM_URL -t 61 -c copy -bsf:a aac_adtstoasc $FULL_PATH
 
