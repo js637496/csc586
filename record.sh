@@ -12,10 +12,10 @@ minute=`date +'%M'`
 
 #tar ball every hour for every camera (full daily is too large)
 FULL_PATH=$NFS_PATH/$year/$month/$day/$hour/$CAMERA_ID
+FULL_PATH=${FULL_PATH}_${minute}_.mp4
 
 mkdir -p $FULL_PATH
 
-ffmpeg -i $STREAM_URL -t 61 -c copy -bsf:a aac_adtstoasc $FULL_PATH/$minute.mp4
+ffmpeg -i $STREAM_URL -t 61 -c copy -bsf:a aac_adtstoasc $FULL_PATH
 
-#LATER - if its a new hour (00.mp4) start the tarball process for this camera's pervious hour
-#send to bucket.
+aws s3 mv $FULL_PATH s3://$S3BUCKET/$FULL_PATH
