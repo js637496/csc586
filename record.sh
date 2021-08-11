@@ -10,7 +10,7 @@ day=`date +'%d'`
 hour=`date +'%H'`
 minute=`date +'%M'`
 
-HOUR_PATH=$NFS_PATH/$year/$month/$day/$hour/$CAMERA_ID
+HOUR_PATH=$NFS_PATH/$year/$month/$day/$hour
 mkdir -p $HOUR_PATH
 FULL_PATH=${HOUR_PATH}/${CAMERA_ID}_${minute}.mp4
 
