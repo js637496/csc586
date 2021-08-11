@@ -21,7 +21,7 @@ prefixForIP = "192.168.1."
 
 link = request.LAN("lan")
 
-COMPUTE_NODE_COUNT = 16
+COMPUTE_NODE_COUNT = 2
 
 for i in range(COMPUTE_NODE_COUNT + 1):
   if i == 0:
